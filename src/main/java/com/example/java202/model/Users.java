@@ -14,4 +14,8 @@ public class Users {
     public Integer id;
 
     public String name;
+
+    public Users(String name) {
+        this.name = name;
+    }
 }

@@ -1,9 +1,7 @@
 package com.example.java202.controller;
 
 import com.example.java202.model.Users;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,5 +32,32 @@ public class HomeController {
     @GetMapping("/list-user")
     public List<Users> listUser() {
         return listUser;
+    }
+
+    @PostMapping("/add-user")
+    public String addUser(@RequestBody Users users) {
+        listUser.add(users);
+        return "OK";
+    }
+
+    @PutMapping("/update")
+    public String updateUser(@RequestBody Users users, @RequestParam("id") Integer id) {
+        for (Users user : listUser) {
+            if (user.getId().equals(id)) {
+                user.setName(users.getName());
+            }
+        }
+        return "OK";
+    }
+
+    @DeleteMapping("/delete")
+    public String delete(@RequestParam("id") Integer id) {
+        for (Users user : listUser) {
+            if (user.getId().equals(id)) {
+                listUser.remove(user);
+                break;
+            }
+        }
+        return "OK";
     }
 }
