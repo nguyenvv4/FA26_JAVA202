@@ -36,7 +36,7 @@ public class DrinkController {
         drinkCurrent.setName(newDrink.getName());
         drinkCurrent.setImage(newDrink.getImage());
         drinkCurrent.setActive(newDrink.getActive());
-        drinkCurrent.setCategoryId(newDrink.getCategoryId());
+//        drinkCurrent.setCategoryId(newDrink.getCategoryId());
         drinkCurrent.setDescription(newDrink.getDescription());
         drinkCurrent.setPrice(newDrink.getPrice());
         drinkRepo.save(drinkCurrent);
